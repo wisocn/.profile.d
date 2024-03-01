@@ -9,4 +9,10 @@ function dp(){
 }
 
 
+function gdl(){
+	info "logging into gitlab docker registry"
+	docker login registry.gitlab.com -u $GITLAB_USERNAME --password-stdin <<<$GITLAB_TOKEN
+}
+
+
 
