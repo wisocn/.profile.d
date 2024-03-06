@@ -20,5 +20,5 @@ Usage of bash commands and their decsription
 | kp (kill process)          | kill all processes based on name                            | kp java
 | fp (find process)          | find a process based on name                                | fp java
 | dp (docker prune)          | docker prune (stop all containers + remove all containers)  | dp
-| gdl (gitlab docker login)  | gitlab docker login                                         | gdl
-| gwb                        | gradle wrapper build                                        | gradle wrapper build
+| gdl (gitlab docker login)  | execute docker login to gitlab registry                     | gdl
+| gwb (gradle wrapper build) | executie gradle wrapper build in current dir                | gwb
