@@ -15,8 +15,10 @@ Bash version 5.2.15+
 
 Usage of bash commands and their decsription
 
-| command                | description                                                 | example
-| --------               | -------                                                     | ------------- 
-| kp (kill process)      | kill all processes based on name                            | kp java
-| fp (find process)      | find a process based on name                                | fp java
-| dp (docker prune)      | docker prune (stop all containers + remove all containers)  | dp
+| command                    | description                                                 | example
+| --------                   | -------                                                     | ------------- 
+| kp (kill process)          | kill all processes based on name                            | kp java
+| fp (find process)          | find a process based on name                                | fp java
+| dp (docker prune)          | docker prune (stop all containers + remove all containers)  | dp
+| gdl (gitlab docker login)  | gitlab docker login                                         | gdl
+| gwb                        | gradle wrapper build                                        | gradle wrapper build
