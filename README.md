@@ -22,3 +22,7 @@ Usage of bash commands and their decsription
 | dp (docker prune)          | docker prune (stop all containers + remove all containers)  | dp
 | gdl (gitlab docker login)  | execute docker login to gitlab registry                     | gdl
 | gwb (gradle wrapper build) | executie gradle wrapper build in current dir                | gwb
+| ff (find files)            | Find files in current directory based on string             | ff test.txt
+| fr (remove file)           | remove a file in current directory based on full path       | fr test.txt
+| daf (delete all files)     | find all files and delete in current dir compose(ff()+fr()) | daf test
+
