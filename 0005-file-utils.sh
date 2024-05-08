@@ -4,7 +4,6 @@
 # set -e
 
 ff() {
-
     # Check if any arguments were passed
     if [ $# -eq 0 ]; then
         echo "No Arguments specified. Please provide files to search."
