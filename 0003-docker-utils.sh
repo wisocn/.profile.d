@@ -5,8 +5,15 @@
 
 # docker prune (dp)
 function dp(){
-	info "stopping and killing all docker containers"
 	docker ps -aq | xargs docker stop | xargs docker rm
+	info "stopped and killed all docker containers"
+}
+
+# docker prune all (dpa) stop and remove all images
+function dpa(){
+	export -f dp
+	dp && docker rmi -f $(docker images -aq)
+	info "removed all docker images"
 }
 
 # gitlab docker login (gdl)
