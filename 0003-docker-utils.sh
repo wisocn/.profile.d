@@ -9,6 +9,51 @@ function dp(){
 	info "stopped and killed all docker containers"
 }
 
+
+function dtl(){
+
+	# Ensure jq is installed
+	if ! command -v jq &> /dev/null; then
+		echo "jq is required for this script to work. Please install jq."
+		exit 1
+	fi
+
+	if [ -z "$1" ]; then
+		echo "Usage: dtl <image_name>"
+		return 1
+	fi
+
+	image=$1
+	page_size=${2:-10}
+	response=$(curl -s "https://registry.hub.docker.com/v2/repositories/library/$image/tags?page_size=$page_size")
+	
+	if echo "$response" | grep -q "errors"; then
+		echo "Error fetching tags for image: $image"
+		return 1
+	fi
+
+ 	tags=$(echo "$response" | jq -r '.results[] | "\(.name) \(.last_updated) \(.full_size)"')
+  	max_tag_length=0
+
+	while read -r tag last_updated size; do
+		tag_length=${#tag}
+		if (( tag_length > max_tag_length )); then
+		max_tag_length=$tag_length
+		fi
+	done <<< "$tags"
+
+  	(( column_width = max_tag_length + 5 ))
+
+	echo "Top 5 latest tags for $image:"
+	printf "%-${column_width}s %-30s %-10s\n" "TAG" "LAST UPDATED" "SIZE (MB)"
+	printf "%-${column_width}s %-30s %-10s\n" "----" "-------------" "---------"
+
+	echo "$tags" | while read -r tag last_updated size; do
+		size_mb=$(echo "scale=2; $size / 1024 / 1024" | bc)
+		printf "%-${column_width}s %-30s %-10s\n" "$tag" "$last_updated" "$size_mb"
+	done
+}
+
 # docker list with grep
 function dl(){
 	

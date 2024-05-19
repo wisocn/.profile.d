@@ -23,6 +23,7 @@ Usage of bash commands and their decsription
 | dl (docker list)                 | docker list all active containers                                                    | dl
 | dl $1 (docker list with grep)    | docker list                                                                          | dl postgres
 | dpa (docker prune all)           | docker prune all(stop all containers + remove all containers + remove all images)    | dp
+| dtl $1 $2 (docker tag list)      | search docker hub for tags by name and size                                          | dtl nginx 10
 | gdl (gitlab docker login)        | execute docker login to gitlab registry                                              | gdl
 | gwb (gradle wrapper build)       | execute gradle wrapper build in current dir                                          | gwb
 | ff (find files)                  | Find files in current directory based on string                                      | ff test.txt
