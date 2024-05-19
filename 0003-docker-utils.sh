@@ -9,6 +9,18 @@ function dp(){
 	info "stopped and killed all docker containers"
 }
 
+# docker list with grep
+function dl(){
+	
+	  # Check if any arguments were passed
+  if [ $# -eq 0 ]; then
+			docker ps -a 
+      return 0  # Return with error if no arguments are provided
+  fi
+
+	docker ps -a | grep $1
+}
+
 # docker prune all (dpa) stop and remove all images
 function dpa(){
 	export -f dp
