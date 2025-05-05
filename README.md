@@ -29,4 +29,5 @@ Usage of bash commands and their decsription
 | ff (find files)                  | Find files in current directory based on string                                      | ff test.txt
 | fr (remove file)                 | remove a file in current directory based on full path                                | fr test.txt
 | daf (delete all files)           | find all files and delete in current dir compose(ff()+fr())                          | daf test
+| lsf (list all functions)         | list all functions in ./profile.d subdir or in specified dir and show                | lsf OR lsf /some-dir
 
