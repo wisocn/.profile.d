@@ -3,6 +3,7 @@
 # script execution will fail if any of commands fails
 # set -e
 
+# find files
 ff() {
     # Check if any arguments were passed
     if [ $# -eq 0 ]; then
@@ -13,12 +14,14 @@ ff() {
   find . -type f -iname "*$1*"
 }
 
+# delete all files
 daf() {
   # make fr available to subshells
   export -f fr
   ff $1 | xargs -L 1 -I {} bash -c 'fr "$@"' _ {}
 }
 
+# find and remove
 fr() {
     # Check if any arguments were passed
     if [ $# -eq 0 ]; then

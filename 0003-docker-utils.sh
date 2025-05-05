@@ -4,13 +4,13 @@
 # set -e
 
 # docker prune (dp)
-function dp(){
+dp(){
 	docker ps -aq | xargs docker stop | xargs docker rm
 	info "stopped and killed all docker containers"
 }
 
-
-function dtl(){
+# docker tag list
+dtl(){
 
 	# Ensure jq is installed
 	if ! command -v jq &> /dev/null; then
@@ -55,9 +55,9 @@ function dtl(){
 }
 
 # docker list with grep
-function dl(){
+dl(){
 	
-	  # Check if any arguments were passed
+  # Check if any arguments were passed
   if [ $# -eq 0 ]; then
 			docker ps -a 
       return 0  # Return with error if no arguments are provided
@@ -67,14 +67,14 @@ function dl(){
 }
 
 # docker prune all (dpa) stop and remove all images
-function dpa(){
+dpa(){
 	export -f dp
 	dp && docker rmi -f $(docker images -aq)
 	info "removed all docker images"
 }
 
 # gitlab docker login (gdl)
-function gdl(){
+gdl(){
 	# if both ENV variavles are set
 	if [[ -n "$GITLAB_USERNAME" ]] && [[ -n "$GITLAB_TOKEN" ]]; then
 		info "logging into gitlab docker registry"

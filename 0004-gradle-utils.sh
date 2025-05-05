@@ -3,8 +3,8 @@
 # script execution will fail if any of commands fails
 # set -e
 
-# author https://gist.githubusercontent.com/franzbecker/b4bb77f66d36472548bf/raw/4be1f6f48fecd15016161cdca5a79e53c9a2433e/gradle.bash
-function gwb(){
+# gradle wrapper build
+gwb(){
 	if [ -f gradlew ]; then 
 		./gradlew $@
 	else 
